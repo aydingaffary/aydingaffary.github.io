@@ -161,33 +161,181 @@ button {
 }
 
 
-/* ---------- Hero ---------- */
+/* =========================================
+   Hero
+   ========================================= */
 
 .hero {
-    min-height: 720px;
-
+    min-height: calc(100vh - 72px);
     display: grid;
-    grid-template-columns: 1.5fr 0.8fr;
-
+    grid-template-columns: 1.15fr 0.85fr;
     align-items: center;
-
-    gap: 80px;
+    gap: 70px;
+    padding-top: 60px;
+    padding-bottom: 80px;
 }
 
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
 
 .eyebrow {
-    margin-bottom: 20px;
-
-    color: var(--muted);
-
-    font-size: 13px;
+    margin-bottom: 24px;
+    font-size: 0.78rem;
     font-weight: 600;
-
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    color: var(--muted);
+}
+
+.hero h1 {
+    margin: 0;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(4rem, 7vw, 7rem);
+    line-height: 0.95;
+    font-weight: 600;
+    letter-spacing: -0.045em;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--text);
+}
+
+.hero h1 em {
+    color: var(--muted);
+    font-style: normal;
+}
+
+.hero-description {
+    max-width: 570px;
+    margin-top: 32px;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--muted);
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 38px;
 }
 
 
+/* =========================================
+   Hero Image
+   ========================================= */
+
+.hero-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-image-wrapper {
+    position: relative;
+    width: min(100%, 390px);
+    height: 540px;
+    overflow: hidden;
+
+    border-radius: 48% 48% 8% 8% / 38% 38% 8% 8%;
+
+    background: var(--surface);
+
+    box-shadow:
+        0 35px 80px rgba(0, 0, 0, 0.14);
+
+    isolation: isolate;
+}
+
+
+/* The actual photograph */
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center 22%;
+
+    transform: scale(1.035);
+
+    /*
+       Very subtle soft-focus.
+       The face remains recognizable.
+    */
+    filter: blur(0.65px);
+
+    opacity: 0.93;
+
+    transition:
+        transform 0.8s ease,
+        filter 0.8s ease,
+        opacity 0.8s ease;
+}
+
+
+/* Soft photographic overlay */
+
+.profile-image-wrapper::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.16),
+            transparent 35%
+        ),
+        linear-gradient(
+            to bottom,
+            transparent 45%,
+            rgba(0, 0, 0, 0.13) 100%
+        );
+
+    mix-blend-mode: soft-light;
+}
+
+
+/* Fade the photograph naturally into the page */
+
+.profile-image-wrapper::after {
+    content: "";
+
+    position: absolute;
+    inset: -1px;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 48%,
+            var(--background) 100%
+        );
+}
+
+
+/* Subtle interaction */
+
+.profile-image-wrapper:hover .profile-image {
+    transform: scale(1.065);
+    filter: blur(0.35px);
+    opacity: 1;
+}
 .hero h1 {
     margin-bottom: 24px;
 
@@ -667,35 +815,26 @@ footer {
 
 /* ---------- Small Mobile ---------- */
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
 
-    .container {
-        width: min(
-            calc(100% - 32px),
-            var(--container)
-        );
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        min-height: auto;
+        padding-top: 70px;
     }
 
-
-    .hero h1 {
-        font-size: 60px;
+    .hero-content {
+        order: 1;
     }
 
-
-    .hero-description {
-        font-size: 16px;
+    .hero-image {
+        order: 2;
     }
 
-
-    .hero-buttons {
-        flex-direction: column;
-
-        align-items: flex-start;
-    }
-
-
-    .project-card {
-        padding: 25px;
+    .profile-image-wrapper {
+        width: min(100%, 360px);
+        height: 460px;
     }
 
 }
