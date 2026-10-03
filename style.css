@@ -967,3 +967,30 @@ footer {
         padding: 25px 0;
     }
 }
+.social-icon {
+    width: 42px;
+    height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--text);
+    text-decoration: none;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.social-icon svg {
+    width: 21px;
+    height: 21px;
+
+    fill: currentColor;
+}
+
+.social-icon:hover {
+    transform: translateY(-2px);
+    opacity: 0.6;
+}
