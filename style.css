@@ -712,31 +712,30 @@ body.dark .navbar {
     max-width: 950px;
 }
 
-.github-graph-placeholder {
+.github-contribution-graph {
     width: 100%;
-
-    min-height: 150px;
-
     margin-top: 50px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border: 1px solid var(--border);
-
-    background: var(--surface);
+    overflow-x: auto;
+    padding-bottom: 8px;
 }
 
-.activity-message {
-    color: var(--muted);
-
-    font-size: 0.85rem;
-
-    letter-spacing: 0.04em;
+.github-contribution-graph a {
+    display: block;
+    width: max-content;
+    min-width: 100%;
 }
 
+.github-contribution-graph img {
+    display: block;
+    width: 100%;
+    min-width: 820px;
+    height: auto;
+    border: 0;
+}
+
+.github-contribution-graph a:hover img {
+    opacity: 0.92;
+}
 
 /* =========================================
    Research
