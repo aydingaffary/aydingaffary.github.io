@@ -1,1 +1,37 @@
 
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #222222;
+    line-height: 1.6;
+}
+
+
+/* ---------- Main Container ---------- */
+
+body {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 30px;
+}
+
+
+/* ---------- Hero Section ---------- */
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 20px;
+    color: #666666;
+}
