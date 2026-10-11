@@ -440,11 +440,7 @@ body.dark .navbar {
 
     isolation: isolate;
 
-
-    /*
-       Fade all edges into the page.
-    */
-
+    /* Fade all edges into the page */
     -webkit-mask-image:
         radial-gradient(
             ellipse 72% 72% at center,
@@ -705,7 +701,7 @@ body.dark .navbar {
 
 
 /* =========================================
-   GitHub Activity
+   GitHub Activity & Styled Calendar
    ========================================= */
 
 .github-activity-content {
@@ -714,28 +710,42 @@ body.dark .navbar {
 
 .github-contribution-graph {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 40px;
+    margin-bottom: 25px;
     overflow-x: auto;
-    padding-bottom: 8px;
 }
 
-.github-contribution-graph a {
-    display: block;
-    width: max-content;
-    min-width: 100%;
+/* استایل اختصاصی تقویم گیت‌هاب جهت تطبیق با تم سایت */
+.calendar {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 12px;
+    padding: 24px !important;
+    color: var(--text) !important;
+    font-family: "Inter", sans-serif !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-.github-contribution-graph img {
-    display: block;
-    width: 100%;
-    min-width: 820px;
-    height: auto;
-    border: 0;
+/* اصلاح متون و ستون‌های داخل ویجت گیت‌هاب */
+.calendar .contrib-column,
+.calendar .contrib-footer {
+    border-color: var(--border) !important;
+    font-size: 0.82rem !important;
+    color: var(--muted) !important;
 }
 
-.github-contribution-graph a:hover img {
-    opacity: 0.92;
+.calendar .contrib-number {
+    color: var(--text) !important;
+    font-weight: 600 !important;
 }
+
+.calendar text.month,
+.calendar text.wday {
+    fill: var(--muted) !important;
+    font-size: 10px !important;
+}
+
 
 /* =========================================
    Research
@@ -1081,4 +1091,28 @@ footer {
         padding: 25px 0;
     }
 
+}
+/* استایل کلی کادر تقویم گیت‌هاب */
+.github-contribution-graph {
+    margin: 2rem 0;
+}
+
+.calendar {
+    background: var(--bg-card, #ffffff); /* تطبیق خودکار با تم سایت */
+    border: 1px solid var(--border-color, #eaeaea);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    font-family: 'Inter', sans-serif;
+}
+
+/* زیباتر کردن فونت‌ها و هدر تقویم داخل ویجت */
+.calendar .contrib-column, 
+.calendar .contrib-footer {
+    border-color: var(--border-color, #eaeaea) !important;
+}
+
+/* تنظیم ظاهر روزها و سلول‌ها */
+.calendar .day {
+    outline: none;
 }
