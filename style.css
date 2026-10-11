@@ -708,45 +708,121 @@ body.dark .navbar {
     max-width: 950px;
 }
 
+/* The outer frame acts as a single, clean card in both themes. */
 .github-contribution-graph {
     width: 100%;
-    margin-top: 40px;
+    margin-top: 38px;
     margin-bottom: 25px;
     overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.035);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-/* استایل اختصاصی تقویم گیت‌هاب جهت تطبیق با متغیرهای تم سایت شما */
+body.dark .github-contribution-graph {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+}
+
+.github-contribution-graph::-webkit-scrollbar {
+    height: 7px;
+}
+
+.github-contribution-graph::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.github-contribution-graph::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+}
+
+/* Keep the contribution library's original green intensity levels. */
 .calendar {
-    background: var(--surface) !important;
-    border: 1px solid var(--border) !important;
-    border-radius: 12px;
+    width: 100%;
+    min-width: 620px;
     padding: 24px !important;
+    border: 0 !important;
+    border-radius: 16px;
+    background: transparent !important;
     color: var(--text) !important;
     font-family: "Inter", sans-serif !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-    transition: background 0.3s ease, border-color 0.3s ease;
+    box-shadow: none !important;
+    transition: color 0.3s ease;
+}
+
+.calendar svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 .calendar .contrib-column,
 .calendar .contrib-footer {
     border-color: var(--border) !important;
-    font-size: 0.82rem !important;
     color: var(--muted) !important;
+    font-size: 0.82rem !important;
+}
+
+.calendar .contrib-column {
+    background: transparent !important;
 }
 
 .calendar .contrib-number {
     color: var(--text) !important;
     font-weight: 600 !important;
+    letter-spacing: -0.025em;
 }
 
 .calendar text.month,
 .calendar text.wday {
     fill: var(--muted) !important;
+    font-family: "Inter", sans-serif !important;
     font-size: 10px !important;
 }
 
 .calendar .day {
     outline: none;
+    transition: opacity 0.15s ease;
+}
+
+.calendar .day:hover {
+    opacity: 0.78;
+}
+
+.calendar a {
+    color: var(--muted) !important;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.calendar a:hover {
+    color: var(--text) !important;
+}
+
+@media (max-width: 800px) {
+    .github-contribution-graph {
+        margin-top: 30px;
+        border-radius: 13px;
+    }
+
+    .calendar {
+        min-width: 620px;
+        padding: 20px !important;
+    }
+}
+
+@media (max-width: 500px) {
+    .calendar {
+        min-width: 600px;
+        padding: 16px !important;
+    }
 }
 
 
