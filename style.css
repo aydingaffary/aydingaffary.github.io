@@ -715,7 +715,7 @@ body.dark .navbar {
     overflow-x: auto;
 }
 
-/* استایل اختصاصی تقویم گیت‌هاب جهت تطبیق با تم سایت */
+/* استایل اختصاصی تقویم گیت‌هاب جهت تطبیق با متغیرهای تم سایت شما */
 .calendar {
     background: var(--surface) !important;
     border: 1px solid var(--border) !important;
@@ -727,7 +727,6 @@ body.dark .navbar {
     transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-/* اصلاح متون و ستون‌های داخل ویجت گیت‌هاب */
 .calendar .contrib-column,
 .calendar .contrib-footer {
     border-color: var(--border) !important;
@@ -744,6 +743,10 @@ body.dark .navbar {
 .calendar text.wday {
     fill: var(--muted) !important;
     font-size: 10px !important;
+}
+
+.calendar .day {
+    outline: none;
 }
 
 
@@ -1091,28 +1094,4 @@ footer {
         padding: 25px 0;
     }
 
-}
-/* استایل کلی کادر تقویم گیت‌هاب */
-.github-contribution-graph {
-    margin: 2rem 0;
-}
-
-.calendar {
-    background: var(--bg-card, #ffffff); /* تطبیق خودکار با تم سایت */
-    border: 1px solid var(--border-color, #eaeaea);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-    font-family: 'Inter', sans-serif;
-}
-
-/* زیباتر کردن فونت‌ها و هدر تقویم داخل ویجت */
-.calendar .contrib-column, 
-.calendar .contrib-footer {
-    border-color: var(--border-color, #eaeaea) !important;
-}
-
-/* تنظیم ظاهر روزها و سلول‌ها */
-.calendar .day {
-    outline: none;
 }
