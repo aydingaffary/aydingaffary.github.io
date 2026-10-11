@@ -708,7 +708,6 @@ body.dark .navbar {
     max-width: 950px;
 }
 
-/* The outer frame acts as a single, clean card in both themes. */
 .github-contribution-graph {
     width: 100%;
     margin-top: 38px;
@@ -720,10 +719,7 @@ body.dark .navbar {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.035);
     scrollbar-width: thin;
     scrollbar-color: var(--border) transparent;
-    transition:
-        background 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 body.dark .github-contribution-graph {
@@ -743,7 +739,16 @@ body.dark .github-contribution-graph {
     border-radius: 10px;
 }
 
-/* Keep the contribution library's original green intensity levels. */
+
+.calendar h2,
+.calendar .text-muted,
+.calendar a[href*="year"],
+.calendar .contrib-column,
+.calendar .contrib-footer {
+    display: none !important;
+}
+
+
 .calendar {
     width: 100%;
     min-width: 620px;
@@ -754,30 +759,12 @@ body.dark .github-contribution-graph {
     color: var(--text) !important;
     font-family: "Inter", sans-serif !important;
     box-shadow: none !important;
-    transition: color 0.3s ease;
 }
 
 .calendar svg {
     display: block;
     max-width: 100%;
     height: auto;
-}
-
-.calendar .contrib-column,
-.calendar .contrib-footer {
-    border-color: var(--border) !important;
-    color: var(--muted) !important;
-    font-size: 0.82rem !important;
-}
-
-.calendar .contrib-column {
-    background: transparent !important;
-}
-
-.calendar .contrib-number {
-    color: var(--text) !important;
-    font-weight: 600 !important;
-    letter-spacing: -0.025em;
 }
 
 .calendar text.month,
@@ -794,16 +781,6 @@ body.dark .github-contribution-graph {
 
 .calendar .day:hover {
     opacity: 0.78;
-}
-
-.calendar a {
-    color: var(--muted) !important;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.calendar a:hover {
-    color: var(--text) !important;
 }
 
 @media (max-width: 800px) {
